@@ -1,5 +1,5 @@
 <template>
-    <ContentField>
+    <ContentField  v-if="!$store.state.user.pulling_info">
         <div class="row justify-content-md-center">
             <div class="col-3">
                 <form @submit.prevent="login">
@@ -36,23 +36,40 @@ export default {
     components:{
         ContentField
     },
-    setup(){
+    setup(){//所有变量都要用ref,一开始是空的
         const store = useStore();
         let username = ref('');
         let password = ref('');
         let error_message = ref('');
 
+     
+        const jwt_token = localStorage.getItem("jwt_token");
+        if(jwt_token){
+            store.commit("updateToken",jwt_token);
+            store.dispatch("getinfo",{
+                success(){
+                    router.push({name:"home"});
+                    store.commit("updatePullingInfo",false);
+                },
+                error(){
+                    store.commit("updatePullingInfo",false);
+                }
+            })
+        }
+        else{
+            store.commit("updatePullingInfo",false);
+        }
       
-        const login = () => {
+        const login = () => {//定义一个触发函数，点击后就触发,返回后面的return
             error_message.value = "";
-            store.dispatch("login",{
-                username:username.value,
+            store.dispatch("login",{//要想调用actions里面的函数的话,用dispatch,这里的actions在user.js里面
+                username:username.value,//传值,ref取值的话是用.value
                 password:password.value,
                 success() {
                     store.dispatch("getinfo", {
                         success(){
                             router.push({ name : 'home' });
-                            console.log(store.state.user);
+                            //console.log(store.state.user);调试信息
                         }
                     })
                    
@@ -70,6 +87,7 @@ export default {
             password,
             error_message,
             login,
+          
         }
     }
 }

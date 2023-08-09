@@ -1,4 +1,3 @@
-
 const AC_GAME_OBJECTS = [];
 
 export class AcGameObject {

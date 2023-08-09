@@ -40,11 +40,12 @@ export default {
                     username: data.username,
                     password: data.password,
                 },
-                success(resp) {
-                    if (resp.error_message === "success") {
+                success(resp) {//resp返回的东西都是自己定义的
+                    if (resp.error_message === "success") {//error_message和token都是后端自己定义的,在LoginServiceImpl.java里面
+                        localStorage.setItem("jwt_token",resp.token);
                         context.commit("updateToken", resp.token);
                         data.success(resp);
-                    } else {
+                    } else {//都是调用回调函数
                         data.error(resp);
                     }
                 },
@@ -77,6 +78,7 @@ export default {
             })
         },
         logout(context) {
+            localStorage.removeItem("jwt_token");
             context.commit("logout");
         }
     },
