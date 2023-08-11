@@ -1,6 +1,6 @@
 package com.example.backend.mapper;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.backend.pojo.User;
 import org.apache.ibatis.annotations.Mapper;

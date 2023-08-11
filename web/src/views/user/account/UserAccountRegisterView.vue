@@ -14,8 +14,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for = "password" class="form-label">确认密码</label>
-                        <input v-model="confirmedpassword" type = "password" class="form-control" id = "cofirmedpassword" placeholder="请再次输入密码">
+                        <label for = "confirmedPassword" class="form-label">确认密码</label>
+                        <input v-model="confirmedPassword" type = "password" class="form-control" id = "confirmedPassword" placeholder="请再次输入密码">
                     </div>
                     
                     <div class="error-message">{{error_message}}</div>
@@ -25,8 +25,6 @@
                 </form>
             </div>
         </div>
-
-
 
     </ContentField>
 </template>
@@ -47,21 +45,20 @@ export default {
         
         let username = ref('');
         let password = ref('');
-        let confirmedpassword = ref('');
+        let confirmedPassword = ref('');
         let error_message = ref('');
 
-        const register = () =>{//写个回调函数
+        const register = () =>{
             $.ajax({
                 url:"http://127.0.0.1:3000/user/account/register/",
-                type:"post",//一般来说,只获得数据库中的数据,不修改的话,用get,要修改的话,用post
+                type:"post",
                 data:{
                     username:username.value,
                     password:password.value,
-                    confirmedpassword:confirmedpassword.value,
+                    confirmedPassword:confirmedPassword.value,
                 },
-                //headers:{Authorization:"Bearer " +store.state.user.token,},授权，但是注册不需要授权
                 
-                success(resp){//js很灵活,这里是字典
+                success(resp){
                     if(resp.error_message ==="success"){
                         router.push({name:"user_account_login"});
                     }else{
@@ -76,7 +73,7 @@ export default {
         return {
             username,
             password,
-            confirmedpassword,
+            confirmedPassword: confirmedPassword,
             error_message,
             register,
         }

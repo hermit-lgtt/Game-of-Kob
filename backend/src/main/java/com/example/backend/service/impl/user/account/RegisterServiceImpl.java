@@ -23,37 +23,42 @@ public class RegisterServiceImpl implements RegisterService {
 
 
     @Override
-    public Map<String, String> register(String username, String password, String confirmedPassword) {
+    public Map<String,String> register(String username, String password, String confirmedPassword) {
+        Map<String,String> map = new HashMap<>();
 
-        Map<String, String> map = new HashMap<>();
         if (username == null) {
             map.put("error_message", "用户名不能为空");
             return map;
         }
-        if (password == null || confirmedPassword == null) {
+        if (password.length() == 0 || confirmedPassword == null) {
             map.put("error_message", "密码不能为空");
-            return map;
         }
+
         username = username.trim();
         if (username.length() == 0) {
             map.put("error_message", "用户名不能为空");
             return map;
         }
+
         if (password.length() == 0 || confirmedPassword.length() == 0) {
             map.put("error_message", "密码不能为空");
             return map;
         }
+
         if (username.length() > 100) {
             map.put("error_message", "用户名长度不能大于100");
             return map;
         }
-        if (password.length() > 100 || confirmedPassword.length() > 100) {
+
+        if (password.length() > 100||confirmedPassword.length()>100 ) {
             map.put("error_message", "密码长度不能大于100");
             return map;
         }
 
         if (!password.equals(confirmedPassword)) {
             map.put("error_message", "两次输入的密码不一致");
+            System.out.println(confirmedPassword);
+            System.out.println(password);
             return map;
         }
 

@@ -28,5 +28,3 @@ body{
   background-size: cover;
 }
 </style>
-
-
