@@ -52,5 +52,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/websocket/**");
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 260afeb8ca2386dcc2576e9bfc82614b0417f529
 }
 

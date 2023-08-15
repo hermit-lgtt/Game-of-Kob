@@ -3,7 +3,11 @@ import { Wall } from "./Wall";
 import { Snake } from './Snake';
 
 export class GameMap extends AcGameObject {
+<<<<<<< HEAD
     constructor(ctx, parent,store) {
+=======
+    constructor(ctx, parent, store) {
+>>>>>>> 260afeb8ca2386dcc2576e9bfc82614b0417f529
         super();
 
         this.ctx = ctx;
@@ -12,7 +16,6 @@ export class GameMap extends AcGameObject {
         this.L = 0;
 
         this.rows = 13;
-        this.cols = 13;
         this.cols = 14;
         
         this.inner_walls_count = 20;
@@ -28,7 +31,10 @@ export class GameMap extends AcGameObject {
 
     create_walls() {
         const g = this.store.state.pk.gamemap;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 260afeb8ca2386dcc2576e9bfc82614b0417f529
         for (let r = 0; r < this.rows; r ++ ) {
             for (let c = 0; c < this.cols; c ++ ) {
                 if (g[r][c]) {
@@ -37,7 +43,10 @@ export class GameMap extends AcGameObject {
             }
         }
 
+<<<<<<< HEAD
         
+=======
+>>>>>>> 260afeb8ca2386dcc2576e9bfc82614b0417f529
     }
 
     add_listening_events() {
@@ -58,6 +67,10 @@ export class GameMap extends AcGameObject {
 
     start() {
         this.create_walls();
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 260afeb8ca2386dcc2576e9bfc82614b0417f529
         this.add_listening_events();
     }
 

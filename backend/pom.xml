@@ -93,12 +93,17 @@
             <scope>runtime</scope>
         </dependency>
 
+<<<<<<< HEAD
+=======
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket -->
+>>>>>>> 260afeb8ca2386dcc2576e9bfc82614b0417f529
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
             <version>2.7.2</version>
         </dependency>
 
+<<<<<<< HEAD
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -106,6 +111,15 @@
         </dependency>
 
 
+=======
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>2.0.32</version>
+        </dependency>
+
+>>>>>>> 260afeb8ca2386dcc2576e9bfc82614b0417f529
 
 
 

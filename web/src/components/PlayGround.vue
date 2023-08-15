@@ -6,12 +6,10 @@
 </template>
 
 <script>
-import GameMap from './GameMap.vue'
+import { GameMap } from '@/assets/scripts/GameMap';
 
 export default{
-    components:{
-        GameMap,
-    }
+    components: { GameMap }
 }
 </script>
 
