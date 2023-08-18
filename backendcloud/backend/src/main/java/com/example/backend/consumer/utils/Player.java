@@ -12,6 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Player {
     private Integer id;
+    private Integer botId;
+    private String botCode;//botId = -1 表示亲自出手,否则表示用AI打
     private Integer sx;
     private Integer sy;
     private List<Integer> steps;
