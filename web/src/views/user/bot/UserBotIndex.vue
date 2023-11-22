@@ -176,7 +176,7 @@
  
          const refresh_bots = () => {
              $.ajax({
-                 url: "http://127.0.0.1:3000/user/bot/getlist/",
+                 url: "https://ac.sdaf.top/api/user/bot/getlist/",
                  type: "get",
                  headers: {
                      Authorization: "Bearer " + store.state.user.token,
@@ -192,7 +192,7 @@
         const add_bot = () => {
              botadd.error_message = "";
              $.ajax({
-                 url: "http://127.0.0.1:3000/user/bot/add/",
+                 url: "https://ac.sdaf.top/api/user/bot/add/",
                  type: "post",
                  data: {
                      title: botadd.title,
@@ -219,7 +219,7 @@
          const update_bot = (bot) => {
              botadd.error_message = "";
              $.ajax({
-                 url: "http://127.0.0.1:3000/user/bot/update/",
+                 url: "https://ac.sdaf.top/api/user/bot/update/",
                  type: "post",
                  data: {
                      bot_id: bot.id,
@@ -243,7 +243,7 @@
 
          const remove_bot = (bot) => {
             $.ajax({
-                url: "http://127.0.0.1:3000/user/bot/remove/",
+                url: "https://ac.sdaf.top/api/user/bot/remove/",
                 type: "post",
                 data: {
                     bot_id: bot.id,
